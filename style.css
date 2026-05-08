@@ -1,0 +1,752 @@
+/* 1. FONTS: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+
+/* 2. CSS RESET & VARIABLES*/
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+:root {
+    --text-color:       #F6EEF0;
+    --hover-color:      #A6596E;   
+    --bg-color:         #170C0F;   
+    --second-bg-color:  #211216;   
+
+    /*typography scale*/
+    --font-xl:    2.8rem;   /* hero h1 */
+    --font-lg:    2rem;     /* section h2 */
+    --font-md:    1.2rem;   /* subtitles */
+    --font-sm:    0.875rem; /* labels / tags */
+
+    /*shadows & glow effects*/
+    --neon-box-shadow: 0 0 0.5rem #C99CA8;
+    --neon-text-shadow:
+        0 0 10px  rgba(166, 89, 110, 0.4),
+        0 0 30px  rgba(166, 89, 110, 0.3),
+        0 0 60px  rgba(166, 89, 110, 0.2),
+        0 0 100px rgba(166, 89, 110, 0.15);
+
+    /*layout */
+    --section-padding: 100px 10%;
+    --border-radius:   8px;
+    --transition:      0.4s ease;
+}
+
+
+/* 3.BODY*/
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;           /* to prevents horizontal scroll on mobile */
+}
+
+/* the <span> */
+span {
+    color: var(--hover-color);
+}
+
+/* Section-label overrides the global span colour to stay light */
+.section-label {
+    color: var(--text-color);
+    font-size: var(--font-sm);
+    font-weight: 200;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* shared section padding */
+section {
+    padding: var(--section-padding);
+}
+
+
+/* 4. HEADER*/
+header {
+    position: fixed;           /* stays at top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 10%;
+    z-index: 1000;
+    transition: var(--transition); /* semi-transparent bg, becomes opaque when .scrolled */
+    background: rgba(23, 12, 15, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* JS adds this class on scroll to make header compacted */
+header.scrolled {
+    padding: 14px 10%;
+    background: rgba(23, 12, 15, 0.97);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.logo span {
+    color: var(--hover-color);
+}
+
+/* Nav list: horizontal on desktop, vertical slide-down on mobile */
+.navlist {
+    display: flex;
+    gap: 0;
+}
+.navlist a {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: var(--border-radius);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.navlist a:hover,
+.navlist a.active {
+    color: var(--hover-color);
+    text-shadow: var(--neon-text-shadow);
+}
+
+/* Hamburger icon: hidden on desktop, shown on mobile via media query */
+#menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--hover-color);
+    background: var(--second-bg-color);
+    border-radius: 4px;
+    padding: 2px 4px;
+    display: none;              
+    transition: var(--transition);
+}
+
+
+/* 5. HOME SECTION */
+.home {
+    min-height: 100vh;
+    display: grid;                           
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 120px;                       
+}
+
+/* Left column */
+.home-content h1 {
+    font-size: var(--font-xl);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+.home-content h1 span {
+    color: var(--hover-color);
+    text-shadow: var(--neon-text-shadow);
+}
+
+/* Typing-effect subtitle */
+.change-text h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1rem;
+}
+.typed {
+    color: var(--hover-color);
+    border-bottom: 2px solid var(--hover-color);
+    padding-bottom: 2px;
+}
+
+/* Blinking cursor for the typing effect */
+.cursor {
+    color: var(--hover-color);
+    animation: blink 0.8s step-end infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.home-content p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 460px;
+    margin-bottom: 1.5rem;
+}
+
+/* Info box */
+.info-box {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+.info-item h5 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--hover-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px;
+}
+.info-item span {
+    font-size: 0.82rem;
+    color: var(--text-color);
+}
+
+/* CTA button container */
+.btn-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Social icons row */
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;          
+}
+.social-icons a {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: var(--hover-color);
+    border: 2px solid var(--hover-color);
+    border-radius: var(--border-radius);
+    font-size: 1.3rem;
+    transition: var(--transition);
+    box-shadow: var(--neon-box-shadow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.social-icons a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hover-color);
+    width: 0;
+    transition: width var(--transition);
+    z-index: -1;
+}
+.social-icons a:hover { color: var(--bg-color); }
+.social-icons a:hover::before { width: 100%; }
+
+/* Right column: blob + photo */
+.home-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 520px;
+}
+
+/* Photo container */
+.img-box {
+    position: relative;
+    z-index: 2;            
+    text-align: center;
+}
+.img-box img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Blob layers */
+.liquid-shape {
+    position: absolute;
+    width: 110%;
+    max-width: 560px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* The solid blob*/
+.liquid-shape.solid {
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* The glow blob */
+.liquid-shape.glow {
+    z-index: 0;
+    filter: blur(55px);
+    opacity: 0.5;
+}
+
+
+/* 6. ABOUT SECTION*/
+.about {
+    background: var(--second-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    max-width: 680px;
+    text-align: center;
+}
+.about-content h2 {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    color: var(--hover-color);
+    margin: 0.4rem 0 1.2rem;
+    text-shadow: var(--neon-text-shadow);
+}
+.about-content p {
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+
+/* 7. SKILLS SECTION*/
+.skills {
+    background: var(--bg-color);
+}
+
+/* Grid of skill cards, auto-wraps */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.skill-card {
+    background: var(--second-bg-color);
+    border: 1px solid rgba(166, 89, 110, 0.2);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--hover-color);
+    box-shadow: 0 0 20px rgba(166, 89, 110, 0.2);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--hover-color);
+    margin-bottom: 0.8rem;
+    display: block;
+}
+.skill-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+.skill-card p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(246, 238, 240, 0.7);
+}
+.main-text h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+
+/* Soft skills*/
+.soft-skills {
+    text-align: center;
+}
+.soft-skills h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+}
+.tag {
+    background: rgba(166, 89, 110, 0.12);
+    border: 1px solid rgba(166, 89, 110, 0.4);
+    color: var(--text-color) !important; /* override global span colour */
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: var(--font-sm);
+    font-weight: 400;
+    transition: var(--transition);
+}
+.tag:hover {
+    background: var(--hover-color);
+    color: var(--bg-color) !important;
+}
+
+
+/* 8. PROJECTS SECTION*/
+.projects {
+    background: var(--second-bg-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: var(--bg-color);
+    border: 1px solid rgba(166, 89, 110, 0.2);
+    border-radius: 12px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--hover-color);
+    box-shadow: 0 0 24px rgba(166, 89, 110, 0.18);
+}
+
+/* Top row: icon on left, link icon on right */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-icon {
+    font-size: 2rem;
+    color: var(--hover-color);
+}
+.project-links a {
+    color: rgba(246, 238, 240, 0.6);
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+.project-links a:hover {
+    color: var(--hover-color);
+}
+
+.project-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.project-card p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(246, 238, 240, 0.7);
+    flex: 1;                /* pushes tech tags to the bottom */
+}
+
+/* Tech pill tags at the bottom of each card */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+.tech-tag {
+    font-size: 0.75rem;
+    padding: 3px 12px;
+    border-radius: 50px;
+    background: rgba(166, 89, 110, 0.15);
+    color: var(--hover-color) !important;   /* override global span */
+    border: 1px solid rgba(166, 89, 110, 0.3);
+    font-weight: 500;
+}
+
+
+/* 9. CONTACT SECTION*/
+.contact {
+    background: var(--bg-color);
+}
+
+/* Side-by-side: info cards on left, form on right */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: start;
+}
+
+/* Info cards */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--second-bg-color);
+    border: 1px solid rgba(166, 89, 110, 0.2);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    transition: border-color var(--transition);
+}
+.contact-card:hover {
+    border-color: var(--hover-color);
+}
+.contact-card i {
+    font-size: 1.6rem;
+    color: var(--hover-color);
+}
+.contact-card h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--hover-color);
+    margin-bottom: 2px;
+}
+.contact-card span {
+    font-size: 0.8rem;
+    color: rgba(246, 238, 240, 0.7);
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form-group {
+    width: 100%;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--second-bg-color);
+    border: 1px solid rgba(166, 89, 110, 0.25);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    resize: vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(246, 238, 240, 0.35);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--hover-color);
+    box-shadow: 0 0 8px rgba(166, 89, 110, 0.25);
+}
+
+/* Form feedback message */
+.form-msg {
+    font-size: 0.85rem;
+    color: var(--hover-color);
+    min-height: 1.2rem;
+    text-align: center;
+}
+
+/* Make the send button stretch full width inside contact form */
+.contact-form .btn-box {
+    margin-bottom: 0;
+}
+.contact-form .btn-box .btn {
+    width: 100%;
+    max-width: none;
+}
+
+
+/* 10. FOOTER*/
+footer {
+    background: var(--second-bg-color);
+    text-align: center;
+    padding: 1.5rem 10%;
+    font-size: 0.85rem;
+    color: rgba(246, 238, 240, 0.5);
+    border-top: 1px solid rgba(166, 89, 110, 0.15);
+}
+footer span {
+    color: var(--hover-color);
+}
+
+
+/* 11. SHARED / UTILITY CLASSES*/
+
+/* .main-text: used as the centered heading block before grids */
+.main-text {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.main-text h2 {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    color: var(--hover-color);
+    text-shadow: var(--neon-text-shadow);
+    margin: 0.4rem 0;
+}
+
+/* .btn: the primary call-to-action button, used everywhere */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 28px;
+    height: 46px;
+    background: var(--hover-color);
+    color: var(--bg-color) !important;    /* override global span */
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--hover-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color var(--transition), box-shadow var(--transition);
+    box-shadow: var(--neon-box-shadow);
+}
+/* Hover: background slides away, text turns accent colour */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg-color);
+    width: 0;
+    z-index: -1;
+    transition: width var(--transition);
+}
+.btn:hover {
+    color: var(--hover-color) !important;
+}
+.btn:hover::before {
+    width: 100%;
+}
+
+/* .reveal: scroll-reveal animation base state (invisible + shifted down) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+/* JS adds .visible when element enters viewport */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 12. RESPONSIVE BREAKPOINTS*/
+
+/* tablet (≤ 992px) */
+@media (max-width: 992px) {
+    :root {
+        --section-padding: 80px 7%;
+        --font-xl: 2.2rem;
+    }
+    header { padding: 18px 7%; }
+    header.scrolled { padding: 12px 7%; }
+
+    /* Stack home into a single column, center everything */
+    .home {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 130px;
+        gap: 2rem;
+    }
+    .home-content p { max-width: 100%; }
+    .home-content .info-box { justify-content: center; }
+    .home-content .btn-box { justify-content: center; }
+    .home-content .social-icons { justify-content: center; }
+    .home-image { max-width: 300px; margin: 0 auto; }
+
+    /* Contact: stack info + form vertically */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Télé (≤ 768px)*/
+@media (max-width: 768px) {
+    /* Show hamburger, hide desktop nav */
+    #menu-icon { display: block; }
+
+    .navlist {
+        position: fixed;
+        top: 0;
+        right: -100%;               /* start off-screen to the right */
+        width: 65%;
+        max-width: 280px;
+        height: 100vh;
+        background: var(--second-bg-color);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(166, 89, 110, 0.2);
+        z-index: 999;
+    }
+    /* JS adds .open class to slide the nav in */
+    .navlist.open {
+        right: 0;
+    }
+    .navlist li { width: 100%; }
+    .navlist a {
+        display: block;
+        font-size: 1.05rem;
+        padding: 10px 16px;
+    }
+
+    /* When menu is open, change hamburger icon to ✕ */
+    #menu-icon.open-icon::before {
+        content: "\ea64";   /* bx bx-x glyph code */
+    }
+
+    .home-content h1 { font-size: 1.9rem; }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* small mobile (≤ 480px) */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 70px 5%;
+        --font-xl:  1.8rem;
+        --font-lg:  1.6rem;
+    }
+    header { padding: 16px 5%; }
+    .home { padding-top: 110px; }
+    .info-box { flex-direction: column; gap: 0.8rem; align-items: center; }
+    .contact-card span { font-size: 0.72rem; word-break: break-all; }
+}

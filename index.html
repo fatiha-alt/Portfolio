@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Fatiha's Portfolio</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <!--logo: first letter is accent colored via span rule in CSS -->
+        <div class="logo"><span>F</span>atiha.</div>
+
+        <ul class="navlist" id="navlist">
+            <li><a href="#home"    class="nav-link">Home</a></li>
+            <li><a href="#about"   class="nav-link">About</a></li>
+            <li><a href="#skills"  class="nav-link">Skills</a></li>
+            <li><a href="#projects"class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger icon — JS toggles the navlist open/closed -->
+        <div id="menu-icon" class="bx bx-menu"></div>
+    </header>
+
+
+    <!--HOME SECTION -->
+    <section id="home" class="home">
+
+        <div class="home-content reveal">
+            <h1>Salaam! I'm <span>Fatiha Imahoui</span></h1>
+
+            <!-- Typing-effect that JS will cycle through the array-->
+            <div class="change-text">
+                <h3>And I'm a <span id="typed-text" class="typed"></span><span class="cursor">|</span></h3>
+            </div>
+
+            <p>First-year Software Engineering student at FST Errachidia.
+               Curious and motivated — I love understanding how systems work from the
+               ground up, and I'm always building something new.</p>
+
+            <!--contact info block -->
+            <div class="info-box">
+                <div class="info-item">
+                    <h5><i class='bx bx-envelope'></i> Email</h5>
+                    <span>fatiha05imh@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <h5><i class='bx bxl-github'></i> GitHub</h5>
+                    <span>github.com/fatiha-alt</span>
+                </div>
+            </div>
+
+            <!-- Primary CTA button -->
+            <div class="btn-box">
+                <a href="assets/stage_cv_CIGI_eng.pdf" class="btn">Download CV</a>
+            </div>
+
+            <!-- social icon links -->
+            <div class="social-icons">
+                <a href="mailto:fatiha05imh@gmail.com" title="Email">
+                    <i class='bx bxl-gmail'></i>
+                </a>
+                <a href="https://github.com/fatiha-alt" title="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://linkedin.com/in/fatiha-imahoui" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="home-image reveal">
+            <!-- The img itself -->
+            <div class="img-box">
+                <img src="img/img.png" alt="Fatiha Imahoui">
+            </div>
+
+            <!-- Blob 1: solid fill, serves as a frame for the photo-->
+            <div class="liquid-shape solid">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <path fill="#A6596E">
+                        <animate attributeName="d"
+                            dur="20000ms"
+                            repeatCount="indefinite"
+                            values="
+                            M418.5,334.5Q385,419,306,385.5Q227,352,176,331Q125,310,102,238.5Q79,167,139,96Q199,25,289.5,56Q380,87,416,168.5Q452,250,418.5,334.5Z;
+                            M361,325Q370,400,284.5,437Q199,474,169.5,388.5Q140,303,141.5,250.5Q143,198,180,152.5Q217,107,272.5,129.5Q328,152,340,201Q352,250,361,325Z;
+                            M373,323.5Q367,397,287,418.5Q207,440,160.5,377.5Q114,315,124,254.5Q134,194,172,133.5Q210,73,304,68.5Q398,64,388.5,157Q379,250,373,323.5Z;
+                            M354.5,295.5Q323,341,268.5,374.5Q214,408,181.5,353.5Q149,299,121.5,237Q94,175,148,107Q202,39,269,90.5Q336,142,361,196Q386,250,354.5,295.5Z;
+                            M418.5,334.5Q385,419,306,385.5Q227,352,176,331Q125,310,102,238.5Q79,167,139,96Q199,25,289.5,56Q380,87,416,168.5Q452,250,418.5,334.5Z;
+                            ">
+                        </animate>
+                    </path>
+                </svg>
+            </div>
+
+            <!-- Blob 2: blurred copy of blob 1 for the soft glow halo -->
+            <div class="liquid-shape glow">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <path fill="#A6596E">
+                        <animate attributeName="d"
+                            dur="20000ms"
+                            repeatCount="indefinite"
+                            values="
+                            M418.5,334.5Q385,419,306,385.5Q227,352,176,331Q125,310,102,238.5Q79,167,139,96Q199,25,289.5,56Q380,87,416,168.5Q452,250,418.5,334.5Z;
+                            M361,325Q370,400,284.5,437Q199,474,169.5,388.5Q140,303,141.5,250.5Q143,198,180,152.5Q217,107,272.5,129.5Q328,152,340,201Q352,250,361,325Z;
+                            M373,323.5Q367,397,287,418.5Q207,440,160.5,377.5Q114,315,124,254.5Q134,194,172,133.5Q210,73,304,68.5Q398,64,388.5,157Q379,250,373,323.5Z;
+                            M354.5,295.5Q323,341,268.5,374.5Q214,408,181.5,353.5Q149,299,121.5,237Q94,175,148,107Q202,39,269,90.5Q336,142,361,196Q386,250,354.5,295.5Z;
+                            M418.5,334.5Q385,419,306,385.5Q227,352,176,331Q125,310,102,238.5Q79,167,139,96Q199,25,289.5,56Q380,87,416,168.5Q452,250,418.5,334.5Z;
+                            ">
+                        </animate>
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="about-content reveal">
+            <span class="section-label">Let me introduce myself</span>
+            <h2>About Me</h2>
+            <p>
+                I'm a first-year Engineering student in Computer Science at FST Errachidia.
+                Curious and motivated, I enjoy understanding how systems work at a deeper level,
+                from low-level programming in C and C++ to building structured web applications.
+                I'm continuously strengthening my problem-solving skills and seeking practical
+                experiences where I can contribute and grow.
+            </p>
+            <p>
+                When I'm not coding, I'm exploring new concepts in algorithms, logic, and system
+                design. I believe strong fundamentals are the foundation of every great engineer.
+            </p>
+            <!-- contact section -->
+            <div class="btn-box">
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills">
+        <div class="main-text reveal">
+            <span class="section-label">What I work with</span>
+            <h2>My Skills</h2>
+            <h3>Technical Skills</h3>
+        </div>
+
+        <!-- Technical skills grid -->
+        <div class="skills-grid reveal">
+
+            <div class="skill-card">
+                <i class='bx bx-code-curly skill-icon'></i>
+                <h3>C / C++</h3>
+                <p>Low-level memory management, pointers, data structures, and algorithmic problem solving.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bxl-html5 skill-icon'></i>
+                <h3>HTML & CSS</h3>
+                <p>Semantic markup, Flexbox, Grid, responsive layouts, and CSS animations.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bxl-javascript skill-icon'></i>
+                <h3>JavaScript</h3>
+                <p>DOM manipulation, event handling, fetch API, and interactive web features.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bxl-react skill-icon'></i>
+                <h3>React</h3>
+                <p>Reusable components, virtual DOM, hooks, and cross-platform mobile development with React Native.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bxl-python skill-icon'></i>
+                <h3>Python</h3>
+                <p>Scripting, file I/O, basic data processing, and algorithmic challenges.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bxl-git skill-icon'></i>
+                <h3>Git & GitHub</h3>
+                <p>Version control, branching, pull requests, and collaborative workflows.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class='bx bx-data skill-icon'></i>
+                <h3>SQL Basics</h3>
+                <p>Relational databases, SELECT queries, JOINs, and schema design fundamentals.</p>
+            </div>
+
+        </div>
+
+        <!-- Soft skills — displayed as simple tags/pills for visual contrast -->
+        <div class="soft-skills reveal">
+            <h3>Soft Skills</h3>
+            <div class="tags">
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Teamwork</span>
+                <span class="tag">Quick Learner</span>
+                <span class="tag">Attention to Detail</span>
+                <span class="tag">Communication</span>
+                <span class="tag">Time Management</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+        <div class="main-text reveal">
+            <span class="section-label">Things I've built</span>
+            <h2>Projects</h2>
+        </div>
+
+        <div class="projects-grid reveal">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class='bx bx-code project-icon'></i>
+                    <div class="project-links">
+                        <a href="https://github.com/fatiha-alt/tic-tac-toe-c.git" title="View on GitHub" target="_blank" rel="noopener">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>Tic-Tac-Toe Game</h3>
+                <p> Implemented game logic with input validation, showcasing problem-solving skills</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class='bx bx-world project-icon'></i>
+                    <div class="project-links">
+                        <a href="#" title="View on GitHub" target="_blank" rel="noopener">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>Portfolio Website</h3>
+                <p>This portfolio — designed and built from scratch with pure HTML, CSS, and JavaScript. Fully responsive with scroll animations.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class='bx bx-list-check project-icon'></i>
+                    <div class="project-links">
+                        <a href="https://github.com/fatimabahoumi05/TodoList.git" title="View on GitHub" target="_blank" rel="noopener">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>To-Do List Web App</h3>
+                <p>A task manager featuring inline editing, task filtering, and a responsive UI built with advanced CSS and DOM manipulation.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class='bx bx-scatter-chart project-icon'></i>
+                </div>
+                <h3>Decision Tree Orientation System</h3>
+                <p>Designed and implemented a binary decision tree system to help students choose suitable academic fields.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">DataStructures</span>
+                </div>
+            </div> 
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="main-text reveal">
+            <span class="section-label">Let's connect</span>
+            <h2>Contact Me</h2>
+        </div>
+
+        <div class="contact-wrapper reveal">
+
+            <!-- contact info cards -->
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class='bx bx-envelope'></i>
+                    <div>
+                        <h4>Email</h4>
+                        <span>fatiha05imh@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class='bx bxl-github'></i>
+                    <div>
+                        <h4>GitHub</h4>
+                        <span>github.com/fatiha-alt</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class='bx bxl-linkedin'></i>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <span>linkedin.com/in/fatiha-imahoui</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- contact form -->
+            <form action="https://formspree.io/f/xpqblljo" method="POST">
+            <div class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="btn-box">
+                    <button class="btn" id="sendBtn" onclick="handleContact()">Send Message</button>
+                </div>
+                <!-- Confirmation message shown after submit -->
+                <p id="form-msg" class="form-msg"></p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© <span id="year"></span> <span>Fatiha Imahoui</span>. Built with passion.</p>
+    </footer>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

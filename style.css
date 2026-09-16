@@ -407,7 +407,141 @@ header.scrolled {
 }
 
 
-/* 8. PROJECTS SECTION*/
+/* 8.INTERNSHIPS SECTION */
+.internships {
+    background: var(--bg-color);
+}
+
+.timeline-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 28px; /* Space for the vertical line */
+}
+
+/* Vertical Timeline Accent Line */
+.timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 7px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: linear-gradient(180deg, var(--hover-color) 0%, rgba(166, 89, 110, 0.15) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Node Indicator */
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 22px;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    border: 3px solid var(--hover-color);
+    box-shadow: 0 0 10px var(--hover-color);
+    z-index: 2;
+}
+
+/* Card Container */
+.internship-card {
+    background: linear-gradient(145deg, rgba(33, 18, 22, 0.95), rgba(23, 12, 15, 0.95));
+    border: 1px solid rgba(166, 89, 110, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.internship-card:hover {
+    transform: translateX(4px);
+    border-color: var(--hover-color);
+    box-shadow: 0 8px 25px -5px rgba(166, 89, 110, 0.22);
+}
+
+/* Header & Date Styling */
+.internship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.internship-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.company-name {
+    font-size: 0.88rem;
+    color: var(--hover-color);
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+}
+
+.internship-date {
+    font-size: 0.8rem;
+    color: var(--hover-color);
+    background: rgba(166, 89, 110, 0.12);
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(166, 89, 110, 0.3);
+    font-weight: 500;
+}
+
+/* Streamlined Bullet Points */
+.internship-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 1.2rem;
+}
+
+.internship-bullets li {
+    list-style-type: disc;
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(246, 238, 240, 0.85);
+}
+
+.internship-bullets li::marker {
+    color: var(--hover-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .timeline-wrapper {
+        padding-left: 18px;
+    }
+    .timeline-wrapper::before {
+        left: 3px;
+    }
+    .timeline-dot {
+        left: -18px;
+    }
+    .internship-card {
+        padding: 1.2rem;
+    }
+}
+
+/* 9. PROJECTS SECTION*/
 .projects {
     background: var(--second-bg-color);
 }
@@ -485,7 +619,7 @@ header.scrolled {
 }
 
 
-/* 9. CONTACT SECTION*/
+/* 10. CONTACT SECTION*/
 .contact {
     background: var(--bg-color);
 }
@@ -584,7 +718,7 @@ header.scrolled {
 }
 
 
-/* 10. FOOTER*/
+/* 11. FOOTER*/
 footer {
     background: var(--second-bg-color);
     text-align: center;
@@ -598,7 +732,7 @@ footer span {
 }
 
 
-/* 11. SHARED / UTILITY CLASSES*/
+/* 12. SHARED / UTILITY CLASSES*/
 
 /* .main-text: used as the centered heading block before grids */
 .main-text {
@@ -665,7 +799,7 @@ footer span {
 }
 
 
-/* 12. RESPONSIVE BREAKPOINTS*/
+/* 13. RESPONSIVE BREAKPOINTS*/
 
 /* tablet (≤ 992px) */
 @media (max-width: 992px) {
